@@ -15,10 +15,10 @@ When the parent component has shadow set to false, the child web component or HT
 
 The summarized environment where the issue occurs is as follows:
 
-- When using a Stencil component built with dist-custom-element and bundled, `only when the shadow: false` option is set.
+- **When using a Stencil component built with `dist-custom-element` and bundled, `only when the shadow: false` option is set.**
 - The issue tends to occur in fewer instances when child components have more tasks, and it becomes more noticeable with a higher number of instances. If the project utilizes Chrome Dev Console, the occurrence is even more prominent.
 - The issue is consistent across both stencil@2 and stencil@4.12.0 versions.
-- It consistently reproduces in the latest versions of Chrome and Edge on both macOS and Windows.
+- **It consistently reproduces in the latest versions of Chrome and Edge on both macOS and Windows.**
 - During testing, the problem was not observed in the latest versions of Safari and Firefox.
 
 As you can see here, some of the child components inserted into the slot of the parent component with shadow:false are rendered outside the border.
