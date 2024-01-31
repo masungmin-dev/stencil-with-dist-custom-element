@@ -1,5 +1,13 @@
 # Stencil Component with dist-custom-element, noshadow mode
 
+## Script alias
+
+### npm run dev
+`npm run dev`
+
+Stencil component will build as `dist-custom-element` and re-bundle by webpack for this use case
+
+
 ## Main issue
 There is a child component responsible for rendering a span element, and a parent component that draws a border with the `shadow` option set to false
 
@@ -13,9 +21,8 @@ The summarized environment where the issue occurs is as follows:
 - It consistently reproduces in the latest versions of Chrome and Edge on both macOS and Windows.
 - During testing, the problem was not observed in the latest versions of Safari and Firefox.
 
-## Script alias
+As you can see here, some of the child components inserted into the slot of the parent component with shadow:false are rendered outside the border.
 
-### npm run dev
-`npm run dev`
-Stencil component will build as `dist-custom-element` and re-bundle by webpack for this use case
+![Jan-31-2024 13-49-52](https://github.com/masungmin-dev/stencil-with-dist-custom-element/assets/24363683/848f0a63-6af7-4a1d-b293-ee8424754dcb)
+
 
