@@ -10,6 +10,7 @@ export class SShadowBorder {
       <div style={{ border: '1px solid red' }}>
         <p>this parent component is shadow</p>
         <slot></slot>
+        <p>Child elements must be located higher than this.</p>
       </div>
     );
   }

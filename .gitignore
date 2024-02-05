@@ -1,0 +1,14 @@
+.stencil
+
+.DS_Store
+.idea/
+.vscode/
+.history/
+.sass-cache/
+.versions/
+node_modules/
+coverage/
+
+/build/
+/scripts/build/
+dist/
