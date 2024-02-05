@@ -20,6 +20,21 @@ The summarized environment where the issue occurs is as follows:
 - The issue is consistent across both stencil@2 and stencil@4.12.0 versions.
 - **It consistently reproduces in the latest versions of Chrome and Edge on both macOS and Windows.**
 - During testing, the problem was not observed in the latest versions of Safari and Firefox.
+- The more slowly the domContentLoaded event occurs, the more slots load correctly.
+- Placing the bundled JavaScript under the body results in proper rendering.
+- Within the built core logic, specifically in markSlotContentForRelocation, during the processing of the parent component from the example, the number of childNodes retrieved corresponds only to the correctly positioned ones.
+
+### Edit
+- The problem is that the parent searches for the child nodes before Chrome browser finishes parsing the DOM.
+- This problem also causes the child's life cycle to escape from that of the parent.
+
+The way to solve this by avoiding the current symptoms is as follows. (Unfortunately, it’s not a solution for me)
+
+Any of the following cases will do.
+
+- Simply move the main.js script file, which is executed in index.html, to below the body.
+- Execute the main.js script file, which is run in index.html, with defer.
+- Add an event in src/webpackWillBundleThis.js to execute defineCustomElements at the domContentLoaded timing.
 
 As you can see here, some of the child components inserted into the slot of the parent component with shadow:false are rendered outside the border.
 
