@@ -4,7 +4,12 @@
     <meta charset="utf-8" />
     <title>stencil-noshadow-test</title>
 
-    <script src="/main.js"></script>
+    <script defer src="/main.js"></script>
+    <!--
+      defer will help you to execute defineCustomElements when dom parsing is end.
+      then the problem is not occurred(but slower then before)
+      <script defer src="/main.js"></script> 
+    -->
   </head>
   <body>
     <div style="display:flex;justify-content: space-between;gap:20px">
@@ -1416,7 +1421,6 @@
             <s-child></s-child>            
            </s-shadow-border>
     </div>
-  
   </body>
 </html>
 
